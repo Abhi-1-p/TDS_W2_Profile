@@ -1,26 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Showcase</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f4f4f4;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      font-size: 16px;
-      color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Patra | Data Scientist & Civil Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap');
+        
+        :root {
+            --neon-blue: #00d2ff;
+            --neon-purple: #9d50bb;
+            --neon-amber: #f4b400;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #05070a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .header-font { font-family: 'Orbitron', sans-serif; }
+
+        /* Neon Glow Effects */
+        .neon-border-blue {
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
+        }
+        .neon-border-blue:hover {
+            border: 1px solid rgba(0, 210, 255, 0.8);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+        }
+
+        .neon-border-amber {
+            border: 1px solid rgba(244, 180, 0, 0.3);
+            box-shadow: 0 0 15px rgba(244, 180, 0, 0.1);
+        }
+        .neon-border-amber:hover {
+            border: 1px solid rgba(244, 180, 0, 0.8);
+            box-shadow: 0 0 20px rgba(244, 180, 0, 0.3);
+        }
+
+        .glass-morphism {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 74, 153, 0.2) 0%, transparent 70%);
+        }
+
+        /* Animated Background Gradients */
+        .bg-blob {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1) 0%, rgba(157, 80, 187, 0.1) 100%);
+            filter: blur(80px);
+            z-index: -1;
+            border-radius: 50%;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        .project-card {
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #05070a; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-blue); }
+
+        /* Modal Overlay */
+        #details-modal {
+            transition: opacity 0.3s ease;
+        }
+    </style>
 </head>
-<body>
-  <h1>Welcome to My Showcase!</h1>
-  <p>Contact me at: <!--email_off-->23f1001909@ds.study.iitm.ac.in<!--/email_off--></p>
+<body class="selection:bg-cyan-500/30">
+
+    <div class="bg-blob" style="top: -100px; left: -100px;"></div>
+    <div class="bg-blob" style="bottom: -100px; right: -100px; animation-delay: -5s;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-[100] glass-morphism border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="header-font text-2xl font-bold tracking-tighter">
+                <span class="text-cyan-400">A</span>P<span class="text-amber-400">.</span>
+            </div>
+            <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+                <a href="#education" class="hover:text-cyan-400 transition-colors">Education</a>
+                <a href="#contact" class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/50 rounded-full hover:bg-cyan-500 hover:text-black transition-all">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative pt-44 pb-32 hero-gradient overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 z-10">
+                <div class="inline-block px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-widest">
+                    Available for Internships
+                </div>
+                <h1 class="header-font text-5xl md:text-7xl font-bold leading-none">
+                    Abhishek <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Patra</span>
+                </h1>
+                <p class="text-lg text-slate-400 max-w-lg leading-relaxed">
+                    A dual-disciplinary engineer merging <strong>Civil Engineering</strong> precision with <strong>Data Science</strong> intelligence. Currently at NIT Rourkela & IIT Madras.
+                </p>
+                <div class="flex space-x-6 pt-4">
+                    <a href="mailto:abhi122.abc@gmail.com" class="text-2xl hover:text-cyan-400 transition-colors"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/Abhi-1-p" target="_blank" class="text-2xl hover:text-purple-400 transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="relative flex justify-center md:justify-end">
+                <div class="relative z-10 p-2 rounded-[2rem] neon-border-blue bg-slate-900/50">
+                    <img src="https://ui-avatars.com/api/?name=Abhishek+Patra&background=0f172a&color=00d2ff&size=400" alt="Profile" class="w-64 h-64 md:w-80 md:h-80 rounded-[1.8rem] object-cover">
+                </div>
+                <!-- Decorative Elements -->
+                <div class="absolute -top-4 -right-4 w-24 h-24 border-t-4 border-r-4 border-cyan-500/50 rounded-tr-3xl"></div>
+                <div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-4 border-l-4 border-amber-500/50 rounded-bl-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Projects -->
+    <main class="max-w-6xl mx-auto px-6 py-20 space-y-32">
+        
+        <!-- Stats Section -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="glass-morphism p-6 rounded-3xl text-center neon-border-blue">
+                <div class="header-font text-3xl font-bold text-cyan-400">8.56</div>
+                <div class="text-[10px] uppercase font-bold text-slate-500 tracking-tighter">NITR CGPA</div>
+            </div>
+            <div class="glass-morphism p-6 rounded-3xl text-center neon-border-amber">
+                <div class="header-font text-3xl font-bold text-amber-400">7.33</div>
+                <div class="text-[10px] uppercase font-bold text-slate-500 tracking-tighter">IITM CGPA</div>
+            </div>
+            <div class="glass-morphism p-6 rounded-3xl text-center neon-border-blue">
+                <div class="header-font text-3xl font-bold text-cyan-400">10+</div>
+                <div class="text-[10px] uppercase font-bold text-slate-500 tracking-tighter">Projects</div>
+            </div>
+            <div class="glass-morphism p-6 rounded-3xl text-center neon-border-amber">
+                <div class="header-font text-3xl font-bold text-amber-400">2025</div>
+                <div class="text-[10px] uppercase font-bold text-slate-500 tracking-tighter">Graduation</div>
+            </div>
+        </div>
+
+        <!-- Section: Experience -->
+        <section id="experience">
+            <h2 class="header-font text-3xl font-bold mb-12 flex items-center">
+                <span class="w-12 h-[2px] bg-cyan-500 mr-4"></span> Work Experience
+            </h2>
+            <div class="grid gap-6">
+                <!-- Exp 1 -->
+                <div onclick="openModal('exp1')" class="project-card glass-morphism p-8 rounded-[2rem] neon-border-blue flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-1">Project Management Intern</h3>
+                        <p class="text-cyan-400 font-semibold">S.P. GOEL</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="px-4 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-widest">May 2025 - July 2025</span>
+                    </div>
+                </div>
+
+                <!-- Exp 2 -->
+                <div onclick="openModal('exp2')" class="project-card glass-morphism p-8 rounded-[2rem] neon-border-amber flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-1">Data Analyst Intern</h3>
+                        <p class="text-amber-400 font-semibold">NIT Rourkela</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="px-4 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold uppercase tracking-widest">Summer 2024</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Projects -->
+        <section id="projects">
+            <h2 class="header-font text-3xl font-bold mb-12 flex items-center">
+                <span class="w-12 h-[2px] bg-purple-500 mr-4"></span> Featured Projects
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div onclick="openModal('proj1')" class="project-card group relative glass-morphism p-8 rounded-[2rem] neon-border-blue overflow-hidden">
+                    <div class="absolute top-0 right-0 p-6 text-cyan-500/20 text-5xl group-hover:text-cyan-500/40 transition-colors">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 pr-10 leading-tight">Customer Churn Prediction</h3>
+                    <p class="text-sm text-slate-400 mb-6 line-clamp-2">Built a classification model using XGBoost to predict status in 7,000+ records.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-800 text-cyan-400">XGBoost</span>
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-800 text-cyan-400">Python</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div onclick="openModal('proj2')" class="project-card group relative glass-morphism p-8 rounded-[2rem] neon-border-amber overflow-hidden">
+                    <div class="absolute top-0 right-0 p-6 text-amber-500/20 text-5xl group-hover:text-amber-500/40 transition-colors">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 pr-10 leading-tight">Statistical Analysis</h3>
+                    <p class="text-sm text-slate-400 mb-6 line-clamp-2">Engineered framework to synthesize 7,000+ noisy feedback records across global datasets.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-800 text-amber-400">Pandas</span>
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-800 text-amber-400">Seaborn</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div onclick="openModal('proj3')" class="project-card group relative glass-morphism p-8 rounded-[2rem] neon-border-blue overflow-hidden">
+                    <div class="absolute top-0 right-0 p-6 text-purple-500/20 text-5xl group-hover:text-purple-500/40 transition-colors">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 pr-10 leading-tight">Groundwater Prediction</h3>
+                    <p class="text-sm text-slate-400 mb-6 line-clamp-2">Time-series forecasting on 28 years of data using LSTM and FB Prophet.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-800 text-purple-400">LSTM</span>
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-800 text-purple-400">Arima</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-slate-950 pt-20 pb-10 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="header-font text-4xl font-bold mb-6">Let's Build Something <span class="text-cyan-400">Great</span></h2>
+            <p class="text-slate-500 mb-10 max-w-lg mx-auto">Open for conversations about Data Science, Machine Learning, and Project Management.</p>
+            
+            <div class="flex flex-wrap justify-center gap-6 mb-20">
+                <a href="mailto:abhi122.abc@gmail.com" class="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-cyan-400 transition-all">Send Email</a>
+                <a href="#" class="px-8 py-3 rounded-full border border-white/20 text-white font-bold hover:bg-white/10 transition-all">Download CV</a>
+            </div>
+
+            <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 font-bold uppercase tracking-widest gap-6">
+                <div>Abhishek Patra © 2025</div>
+                <div class="flex space-x-8">
+                    <a href="https://github.com/Abhi-1-p" class="hover:text-white transition-colors">Github</a>
+                    <a href="#" class="hover:text-white transition-colors">Linkedin</a>
+                    <a href="#" class="hover:text-white transition-colors">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Details Modal -->
+    <div id="details-modal" class="fixed inset-0 z-[200] hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-morphism w-full max-w-2xl rounded-[3rem] p-10 neon-border-blue relative overflow-hidden">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-500 hover:text-white text-2xl"><i class="fas fa-times"></i></button>
+            <div id="modal-content" class="space-y-6">
+                <!-- Content Injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modalData = {
+            exp1: {
+                title: 'Project Management Intern',
+                company: 'S.P. GOEL | Titlagarh',
+                period: 'May 2025 - July 2025',
+                color: 'text-cyan-400',
+                details: `
+                    <p class="text-slate-400 leading-relaxed">During this internship, I focused on high-level operational efficiency and budget oversight.</p>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-cyan-500"></i> Standardized budget control across 5+ sites using cost variance analysis (8% reduction in expenditure - Rs 3.2L).</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-cyan-500"></i> Built Power BI dashboards to track project KPIs and supplier efficiency.</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-cyan-500"></i> Improved procurement cycle time by 12% via KPI defining.</li>
+                    </ul>
+                    <div class="pt-6 border-t border-white/10">
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Core Tools</span>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs">Power BI</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs">MS Excel</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs">Project Management</span>
+                        </div>
+                    </div>
+                `
+            },
+            exp2: {
+                title: 'Data Analyst (Summer Intern)',
+                company: 'NIT Rourkela',
+                period: 'May 2024 - July 2024',
+                color: 'text-amber-400',
+                details: `
+                    <p class="text-slate-400 leading-relaxed">Conducted end-to-end time-series analysis on 28 years of groundwater data.</p>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-amber-500"></i> Used ARIMA, LSTM, and FB Prophet for predictive modeling.</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-amber-500"></i> Achieved R² of 0.7, improving prediction reliability by 20%.</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-amber-500"></i> Authored a technical report on data-driven conclusions for environmental engineering.</li>
+                    </ul>
+                `
+            },
+            proj1: {
+                title: 'Customer Churn Prediction',
+                company: 'Machine Learning Project',
+                period: 'January 2025',
+                color: 'text-cyan-400',
+                details: `
+                    <p class="text-slate-400 leading-relaxed">A strategic project aimed at reducing customer attrition through predictive modeling.</p>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start"><i class="fas fa-microchip mt-1 mr-3 text-cyan-500"></i> Classification model using XGBoost & Random Forest (80.86% accuracy).</li>
+                        <li class="flex items-start"><i class="fas fa-microchip mt-1 mr-3 text-cyan-500"></i> Implemented full scikit-learn pipeline (cleaning, feature engineering).</li>
+                        <li class="flex items-start"><i class="fas fa-microchip mt-1 mr-3 text-cyan-500"></i> Multivariate analysis using Seaborn for strategic insights.</li>
+                    </ul>
+                `
+            },
+            proj2: {
+                title: 'Statistical Data Analysis',
+                company: 'Data Analytics Project',
+                period: 'January 2024',
+                color: 'text-amber-400',
+                details: `
+                    <p class="text-slate-400 leading-relaxed">Synthesized and modeled complex datasets with heavy-tailed distributions.</p>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start"><i class="fas fa-signal mt-1 mr-3 text-amber-500"></i> Processed 7,000+ noisy human feedback records.</li>
+                        <li class="flex items-start"><i class="fas fa-signal mt-1 mr-3 text-amber-500"></i> Implemented weighted normalization for 10,000+ book records to mitigate popularity bias.</li>
+                        <li class="flex items-start"><i class="fas fa-signal mt-1 mr-3 text-amber-500"></i> Identified 0.78 correlation between GDP and National Happiness.</li>
+                    </ul>
+                `
+            }
+        };
+
+        function openModal(id) {
+            const data = modalData[id];
+            if (!data) return;
+            
+            const content = `
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-500">${data.period}</span>
+                    <h2 class="header-font text-3xl font-bold mt-2">${data.title}</h2>
+                    <p class="${data.color} font-bold text-lg mb-6">${data.company}</p>
+                </div>
+                <div class="space-y-6">
+                    ${data.details}
+                </div>
+            `;
+            
+            document.getElementById('modal-content').innerHTML = content;
+            const modal = document.getElementById('details-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('details-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on click outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('details-modal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
 </body>
 </html>
